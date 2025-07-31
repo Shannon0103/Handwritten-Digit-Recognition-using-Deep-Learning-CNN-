@@ -20,24 +20,24 @@ st.markdown("Select model and input method to predict digits.")
 # -----------------------------
 MODEL_LINKS = {
     "English": {
-        "CNN": "https://drive.google.com/file/d/1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6/view?usp=drive_link",
-        "ANN": "https://drive.google.com/file/d/1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR/view?usp=drive_link",
-        "RF": "https://drive.google.com/file/d/14caVZGrLCvocRujCpKB53H2EvpkRDQ3w/view?usp=drive_link"
+        "CNN": "https://drive.google.com/file/d/1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6/view?usp=sharing",
+        "ANN": "https://drive.google.com/file/d/1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR/view?usp=sharing",
+        "RF": "https://drive.google.com/file/d/14caVZGrLCvocRujCpKB53H2EvpkRDQ3w/view?usp=sharing"
     },
     "Hindi": {
-        "CNN": "https://drive.google.com/file/d/15TNldBSc2Z7P8VVQ6QfopNx4Z6PcIfC3/view?usp=drive_link",
-        "ANN": "https://drive.google.com/file/d/1a_0Y3dNu0MC7nr6EQCTDUWAxvFNcKvCW/view?usp=drive_link",
-        "RF": "https://drive.google.com/file/d/1aq02W1RXxKCaeDxwJQ2RnG1OREN8jyYn/view?usp=drive_link"
+        "CNN": "https://drive.google.com/file/d/15TNldBSc2Z7P8VVQ6QfopNx4Z6PcIfC3/view?usp=sharing",
+        "ANN": "https://drive.google.com/file/d/1a_0Y3dNu0MC7nr6EQCTDUWAxvFNcKvCW/view?usp=sharing",
+        "RF": "https://drive.google.com/file/d/1aq02W1RXxKCaeDxwJQ2RnG1OREN8jyYn/view?usp=sharing"
     },
     "Kannada": {
-        "CNN": "https://drive.google.com/file/d/1DYbOBjtT2SljAKG1bgraSlFjfBAojbEJ/view?usp=drive_link",
-        "ANN": "https://drive.google.com/file/d/10SbZ1c4E05UdkPbGy8c97hOhAK1pSDOs/view?usp=drive_link",
-        "RF": "https://drive.google.com/file/d/1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf/view?usp=drive_link"
+        "CNN": "https://drive.google.com/file/d/1DYbOBjtT2SljAKG1bgraSlFjfBAojbEJ/view?usp=sharing",
+        "ANN": "https://drive.google.com/file/d/10SbZ1c4E05UdkPbGy8c97hOhAK1pSDOs/view?usp=sharing",
+        "RF": "https://drive.google.com/file/d/1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf/view?usp=sharing"
     },
     "Roman": {
-        "CNN": "https://drive.google.com/file/d/182axr0KB5PEEDCdJKlzYnMoQuC6OuZDU/view?usp=drive_link",
-        "ANN": "https://drive.google.com/file/d/12YJpZcE3bWOp75WbxBcHbVItioWQd4y-/view?usp=drive_link",
-        "RF": "https://drive.google.com/file/d/1Dy5KemK8Pcqk_F9Y-NBdCygb-DIGhVb7/view?usp=drive_link"
+        "CNN": "https://drive.google.com/file/d/182axr0KB5PEEDCdJKlzYnMoQuC6OuZDU/view?usp=sharing",
+        "ANN": "https://drive.google.com/file/d/12YJpZcE3bWOp75WbxBcHbVItioWQd4y-/view?usp=sharing",
+        "RF": "https://drive.google.com/file/d/1Dy5KemK8Pcqk_F9Y-NBdCygb-DIGhVb7/view?usp=sharing"
     }
 }
 
