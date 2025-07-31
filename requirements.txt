@@ -5,3 +5,4 @@ joblib
 Pillow
 gdown
 streamlit-drawable-canvas
+scikit-learn
