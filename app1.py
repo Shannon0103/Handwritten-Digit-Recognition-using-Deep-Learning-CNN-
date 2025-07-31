@@ -1,5 +1,3 @@
-# app.py
-
 import streamlit as st
 import numpy as np
 import tensorflow as tf
@@ -16,31 +14,31 @@ st.title("🔢 Handwritten Digit Recognition")
 st.markdown("Select model and input method to predict digits.")
 
 # -----------------------------
-# Model Download Links (Google Drive shareable links converted)
-# -----------------------------
+# ✅ Correct Google Drive Download Links
 MODEL_LINKS = {
     "English": {
-        "CNN": "https://drive.google.com/file/d/1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6/view?usp=sharing",
-        "ANN": "https://drive.google.com/file/d/1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR/view?usp=sharing",
-        "RF": "https://drive.google.com/file/d/14caVZGrLCvocRujCpKB53H2EvpkRDQ3w/view?usp=sharing"
+        "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
+        "ANN": "https://drive.google.com/uc?id=1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR",
+        "RF": "https://drive.google.com/uc?id=14caVZGrLCvocRujCpKB53H2EvpkRDQ3w"
     },
     "Hindi": {
-        "CNN": "https://drive.google.com/file/d/15TNldBSc2Z7P8VVQ6QfopNx4Z6PcIfC3/view?usp=sharing",
-        "ANN": "https://drive.google.com/file/d/1a_0Y3dNu0MC7nr6EQCTDUWAxvFNcKvCW/view?usp=sharing",
-        "RF": "https://drive.google.com/file/d/1aq02W1RXxKCaeDxwJQ2RnG1OREN8jyYn/view?usp=sharing"
+        "CNN": "https://drive.google.com/uc?id=15TNldBSc2Z7P8VVQ6QfopNx4Z6PcIfC3",
+        "ANN": "https://drive.google.com/uc?id=1a_0Y3dNu0MC7nr6EQCTDUWAxvFNcKvCW",
+        "RF": "https://drive.google.com/uc?id=1aq02W1RXxKCaeDxwJQ2RnG1OREN8jyYn"
     },
     "Kannada": {
-        "CNN": "https://drive.google.com/file/d/1DYbOBjtT2SljAKG1bgraSlFjfBAojbEJ/view?usp=sharing",
-        "ANN": "https://drive.google.com/file/d/10SbZ1c4E05UdkPbGy8c97hOhAK1pSDOs/view?usp=sharing",
-        "RF": "https://drive.google.com/file/d/1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf/view?usp=sharing"
+        "CNN": "https://drive.google.com/uc?id=1DYbOBjtT2SljAKG1bgraSlFjfBAojbEJ",
+        "ANN": "https://drive.google.com/uc?id=10SbZ1c4E05UdkPbGy8c97hOhAK1pSDOs",
+        "RF": "https://drive.google.com/uc?id=1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf"
     },
     "Roman": {
-        "CNN": "https://drive.google.com/file/d/182axr0KB5PEEDCdJKlzYnMoQuC6OuZDU/view?usp=sharing",
-        "ANN": "https://drive.google.com/file/d/12YJpZcE3bWOp75WbxBcHbVItioWQd4y-/view?usp=sharing",
-        "RF": "https://drive.google.com/file/d/1Dy5KemK8Pcqk_F9Y-NBdCygb-DIGhVb7/view?usp=sharing"
+        "CNN": "https://drive.google.com/uc?id=182axr0KB5PEEDCdJKlzYnMoQuC6OuZDU",
+        "ANN": "https://drive.google.com/uc?id=12YJpZcE3bWOp75WbxBcHbVItioWQd4y-",
+        "RF": "https://drive.google.com/uc?id=1Dy5KemK8Pcqk_F9Y-NBdCygb-DIGhVb7"
     }
 }
 
+# Local save paths
 MODEL_PATHS = {
     "English": {
         "CNN": "models/english_cnn_model.h5",
@@ -65,14 +63,21 @@ MODEL_PATHS = {
 }
 
 # -----------------------------
-# Ensure Model Exists or Download
-# -----------------------------
+# ✅ Ensure model is downloaded and exists
 def ensure_model_exists(language, model_type):
     os.makedirs("models", exist_ok=True)
     model_path = MODEL_PATHS[language][model_type]
     if not os.path.exists(model_path):
         st.info(f"📥 Downloading {language} {model_type} model...")
-        gdown.download(MODEL_LINKS[language][model_type], model_path, quiet=False)
+        gdown.download(MODEL_LINKS[language][model_type], model_path, quiet=False, fuzzy=True)
+
+    # Optional: check file size to ensure it's not a bad download
+    if os.path.exists(model_path):
+        size_kb = os.path.getsize(model_path) // 1024
+        st.write(f"✅ Downloaded model: `{model_path}` ({size_kb} KB)")
+    else:
+        st.error("❌ Model download failed or path is invalid.")
+    
     return model_path
 
 # -----------------------------
@@ -105,7 +110,7 @@ else:
         img = ImageOps.invert(img)
 
 # -----------------------------
-# Prediction
+# Prediction Logic
 # -----------------------------
 if st.button("🔍 Predict"):
     if img is not None:
