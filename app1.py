@@ -9,43 +9,74 @@ from utils.preprocessing import preprocess_image_for_model
 from streamlit_drawable_canvas import st_canvas
 
 # -----------------------------
-st.set_page_config(page_title="Digit Recognizer", layout="centered")
-st.title("Handwritten Digit Recognition")
-with st.expander("ℹ️ About this App", expanded=True):
-    st.markdown("""
-    **Welcome to the Handwritten Digit Recognition App!**  
-    This tool allows you to recognize handwritten digits using different machine learning models trained on multiple languages.
+# Page Config and Custom Styling
+# -----------------------------
+st.set_page_config(page_title="Handwritten Digit Recognition", layout="wide")
 
-    ---
-    ### 🧾 What is Handwritten Digit Recognition?
-    Handwritten Digit Recognition is a machine learning technique that allows computers to identify numbers written by hand. It's widely used in postal systems, banking, education, and more.
-
-    ---
-    ### 🌐 Languages Supported
-    - **English**: Digits 0–9 (standard Western numerals)
-    - **Hindi**: Devanagari script numerals
-    - **Kannada**: Regional Indian language numerals
-    - **Roman Numerals**: I, II, III... up to X
-
-    ---
-    ### 🧠 Models Used
-    - **CNN (Convolutional Neural Network)**  
-      CNNs are deep learning models specially designed for image data. They learn patterns like edges, curves, and shapes — making them highly accurate for image recognition tasks.
-
-    - **ANN (Artificial Neural Network)**  
-      A simpler neural network that learns by mimicking how neurons work in the human brain. It works well for smaller datasets or simpler tasks.
-
-    - **Random Forest (RF)**  
-      A classic machine learning algorithm that builds multiple decision trees and combines them to improve accuracy. It doesn’t "see" images directly — we flatten and convert them into numerical features.
-
-    ---
-    Ready to try it out? Just select a language, pick a model, and either draw or upload your digit image!
-    """)
-
-st.markdown("Select model and input method to predict digits.")
+st.markdown("""
+    <style>
+    .main {
+        background-color: #f9f9f9;
+        font-family: 'Segoe UI', sans-serif;
+        padding: 0px 20px;
+    }
+    .block-container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    h1, h2, h3, h4 {
+        color: #1a73e8;
+    }
+    .stButton>button {
+        background-color: #1a73e8;
+        color: white;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+    }
+    .stSelectbox, .stRadio, .stFileUploader {
+        background-color: #ffffff;
+        border-radius: 8px;
+    }
+    footer {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
 
 # -----------------------------
-# ✅ Correct Google Drive Download Links
+# Title & Info
+# -----------------------------
+st.title("Handwritten Digit Recognition")
+
+with st.expander("About this App", expanded=True):
+    st.markdown("""
+    Welcome to the Handwritten Digit Recognition Web App.  
+    This tool allows you to recognize handwritten digits using pre-trained machine learning models across multiple scripts.
+
+    ---
+    #### What is Handwritten Digit Recognition?
+    It's a machine learning application that enables computers to interpret digits written by hand.  
+    Commonly used in banking, forms processing, postal services, and more.
+
+    ---
+    #### Languages Supported
+    - English: Standard digits (0–9)  
+    - Hindi: Devanagari numerals  
+    - Kannada: Regional script digits  
+    - Roman Numerals: I to X
+
+    ---
+    #### Models Available
+    - **CNN (Convolutional Neural Network)**: Best for image tasks, it learns features like edges and shapes.
+    - **ANN (Artificial Neural Network)**: A simpler model useful for basic pattern recognition.
+    - **Random Forest**: Traditional machine learning using decision trees. Requires the image to be flattened into features.
+
+    ---
+    Select a language and model below to try it out. You can draw a digit or upload an image.
+    """)
+
+# -----------------------------
+# Google Drive Model Links
+# -----------------------------
 MODEL_LINKS = {
     "English": {
         "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
@@ -69,7 +100,6 @@ MODEL_LINKS = {
     }
 }
 
-# Local save paths
 MODEL_PATHS = {
     "English": {
         "CNN": "models/english_cnn_model.h5",
@@ -94,31 +124,30 @@ MODEL_PATHS = {
 }
 
 # -----------------------------
-# ✅ Ensure model is downloaded and exists
+# Download model only once silently
+# -----------------------------
 def ensure_model_exists(language, model_type):
     os.makedirs("models", exist_ok=True)
     model_path = MODEL_PATHS[language][model_type]
     if not os.path.exists(model_path):
-        st.info(f"📥 Downloading {language} {model_type} model...")
-        gdown.download(MODEL_LINKS[language][model_type], model_path, quiet=False, fuzzy=True)
-
-    # Optional: check file size to ensure it's not a bad download
-    # if os.path.exists(model_path):
-    #     size_kb = os.path.getsize(model_path) // 1024
-    #     st.write(f"✅ Downloaded model: `{model_path}` ({size_kb} KB)")
-    # else:
-    #     st.error("❌ Model download failed or path is invalid.")
-    
-    # return model_path
+        gdown.download(MODEL_LINKS[language][model_type], model_path, quiet=True, fuzzy=True)
+    return model_path
 
 # -----------------------------
-# UI Inputs
+# Inputs
 # -----------------------------
-language = st.selectbox("🌐 Select Language", list(MODEL_PATHS.keys()))
-model_type = st.selectbox("🧠 Select Model Type", ["CNN", "ANN", "RF"])
+col1, col2 = st.columns(2)
+with col1:
+    language = st.selectbox("Select Language", list(MODEL_PATHS.keys()))
+with col2:
+    model_type = st.selectbox("Select Model", ["CNN", "ANN", "RF"])
+
 model_path = ensure_model_exists(language, model_type)
 
-input_method = st.radio("✍️ Input Method", ["Draw Digit", "Upload Image"])
+# -----------------------------
+# Input method
+# -----------------------------
+input_method = st.radio("Choose Input Method", ["Draw Digit", "Upload Image"])
 
 img = None
 if input_method == "Draw Digit":
@@ -135,15 +164,15 @@ if input_method == "Draw Digit":
     if canvas_result.image_data is not None:
         img = Image.fromarray((255 - canvas_result.image_data[:, :, 0]).astype(np.uint8))
 else:
-    uploaded_img = st.file_uploader("📁 Upload a digit image", type=["png", "jpg", "jpeg"])
+    uploaded_img = st.file_uploader("Upload a digit image", type=["png", "jpg", "jpeg"])
     if uploaded_img:
         img = Image.open(uploaded_img).convert("L")
         img = ImageOps.invert(img)
 
 # -----------------------------
-# Prediction Logic
+# Prediction
 # -----------------------------
-if st.button("🔍 Predict"):
+if st.button("Predict"):
     if img is not None:
         input_img = preprocess_image_for_model(img, model_type, language)
 
@@ -156,9 +185,9 @@ if st.button("🔍 Predict"):
                 model = joblib.load(model_path)
                 label = model.predict(input_img.reshape(1, -1))[0]
 
-            st.success(f"✅ Predicted Digit: **{label}**")
+            st.success(f"Predicted Digit: **{label}**")
 
         except Exception as e:
-            st.error(f"❌ Error loading model: {e}")
+            st.error(f"Error loading model: {e}")
     else:
         st.warning("Please draw or upload a digit image.")
