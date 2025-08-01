@@ -92,11 +92,6 @@ MODEL_LINKS = {
         "CNN": "https://drive.google.com/uc?id=1DYbOBjtT2SljAKG1bgraSlFjfBAojbEJ",
         "ANN": "https://drive.google.com/uc?id=10SbZ1c4E05UdkPbGy8c97hOhAK1pSDOs",
         "RF": "https://drive.google.com/uc?id=1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf"
-    },
-    "Roman": {
-        "CNN": "https://drive.google.com/uc?id=182axr0KB5PEEDCdJKlzYnMoQuC6OuZDU",
-        "ANN": "https://drive.google.com/uc?id=12YJpZcE3bWOp75WbxBcHbVItioWQd4y-",
-        "RF": "https://drive.google.com/uc?id=1Dy5KemK8Pcqk_F9Y-NBdCygb-DIGhVb7"
     }
 }
 
@@ -115,11 +110,6 @@ MODEL_PATHS = {
         "CNN": "models/kannada_cnn_model.h5",
         "ANN": "models/kannada_ann_model.h5",
         "RF": "models/kannada_rf_model.pkl"
-    },
-    "Roman": {
-        "CNN": "models/roman_cnn_model.h5",
-        "ANN": "models/roman_ann_model.h5",
-        "RF": "models/roman_rf_model.pkl"
     }
 }
 
