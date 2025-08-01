@@ -14,45 +14,48 @@ from streamlit_drawable_canvas import st_canvas
 st.set_page_config(page_title="Handwritten Digit Recognition", layout="wide")
 
 st.markdown("""
-    <style>
-    /* Page Background */
-    .stApp {
-        background: linear-gradient(to bottom right, #f0f4f8, #ffffff);
-        font-family: 'Segoe UI', sans-serif;
-        padding: 1.5rem;
-    }
+<style>
+/* Entire app container */
+html, body, .stApp {
+    height: 100%;
+    background: linear-gradient(to bottom right, #eef2f3, #ffffff);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.05rem;
+    color: #222;
+}
 
-    /* Title */
-    .st-emotion-cache-10trblm {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #1a1a1a;
-    }
+/* Main title */
+h1 {
+    font-size: 2.6rem !important;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
 
-    /* Text */
-    .stMarkdown p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #333333;
-    }
+/* Markdown text */
+.stMarkdown {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
 
-    /* Selectboxes and radios */
-    .stSelectbox, .stRadio, .stFileUploader, .stButton {
-        font-size: 1.05rem;
-    }
+/* Input elements */
+.stSelectbox div, .stRadio div, .stFileUploader, .stButton {
+    font-size: 1.05rem !important;
+}
 
-    /* Input Labels */
-    .st-emotion-cache-1c7y2kd {
-        font-size: 1.1rem;
-        font-weight: 500;
-    }
+/* Sidebar, if used */
+section[data-testid="stSidebar"] {
+    background-color: #f8f9fa;
+}
 
-    /* Hide download/debug text */
-    .stInfo, .stSuccess, .stWarning {
-        display: none !important;
-    }
-    </style>
+/* Hide model downloading messages */
+.stInfo, .stSuccess, .stWarning {
+    display: none !important;
+}
+</style>
 """, unsafe_allow_html=True)
+
 
 # -----------------------------
 # Title & Info
