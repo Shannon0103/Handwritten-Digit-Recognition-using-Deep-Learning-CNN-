@@ -10,7 +10,7 @@ from streamlit_drawable_canvas import st_canvas
 
 # -----------------------------
 st.set_page_config(page_title="Digit Recognizer", layout="centered")
-st.title("🔢 Handwritten Digit Recognition")
+st.title("Handwritten Digit Recognition")
 with st.expander("ℹ️ About this App", expanded=True):
     st.markdown("""
     **Welcome to the Handwritten Digit Recognition App!**  
@@ -103,13 +103,13 @@ def ensure_model_exists(language, model_type):
         gdown.download(MODEL_LINKS[language][model_type], model_path, quiet=False, fuzzy=True)
 
     # Optional: check file size to ensure it's not a bad download
-    if os.path.exists(model_path):
-        size_kb = os.path.getsize(model_path) // 1024
-        st.write(f"✅ Downloaded model: `{model_path}` ({size_kb} KB)")
-    else:
-        st.error("❌ Model download failed or path is invalid.")
+    # if os.path.exists(model_path):
+    #     size_kb = os.path.getsize(model_path) // 1024
+    #     st.write(f"✅ Downloaded model: `{model_path}` ({size_kb} KB)")
+    # else:
+    #     st.error("❌ Model download failed or path is invalid.")
     
-    return model_path
+    # return model_path
 
 # -----------------------------
 # UI Inputs
