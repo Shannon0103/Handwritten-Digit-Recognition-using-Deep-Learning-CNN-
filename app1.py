@@ -11,6 +11,37 @@ from streamlit_drawable_canvas import st_canvas
 # -----------------------------
 st.set_page_config(page_title="Digit Recognizer", layout="centered")
 st.title("🔢 Handwritten Digit Recognition")
+with st.expander("ℹ️ About this App", expanded=True):
+    st.markdown("""
+    **Welcome to the Handwritten Digit Recognition App!**  
+    This tool allows you to recognize handwritten digits using different machine learning models trained on multiple languages.
+
+    ---
+    ### 🧾 What is Handwritten Digit Recognition?
+    Handwritten Digit Recognition is a machine learning technique that allows computers to identify numbers written by hand. It's widely used in postal systems, banking, education, and more.
+
+    ---
+    ### 🌐 Languages Supported
+    - **English**: Digits 0–9 (standard Western numerals)
+    - **Hindi**: Devanagari script numerals
+    - **Kannada**: Regional Indian language numerals
+    - **Roman Numerals**: I, II, III... up to X
+
+    ---
+    ### 🧠 Models Used
+    - **CNN (Convolutional Neural Network)**  
+      CNNs are deep learning models specially designed for image data. They learn patterns like edges, curves, and shapes — making them highly accurate for image recognition tasks.
+
+    - **ANN (Artificial Neural Network)**  
+      A simpler neural network that learns by mimicking how neurons work in the human brain. It works well for smaller datasets or simpler tasks.
+
+    - **Random Forest (RF)**  
+      A classic machine learning algorithm that builds multiple decision trees and combines them to improve accuracy. It doesn’t "see" images directly — we flatten and convert them into numerical features.
+
+    ---
+    Ready to try it out? Just select a language, pick a model, and either draw or upload your digit image!
+    """)
+
 st.markdown("Select model and input method to predict digits.")
 
 # -----------------------------
