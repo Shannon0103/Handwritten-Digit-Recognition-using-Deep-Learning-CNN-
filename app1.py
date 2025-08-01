@@ -15,30 +15,42 @@ st.set_page_config(page_title="Handwritten Digit Recognition", layout="wide")
 
 st.markdown("""
     <style>
-    .main {
-        background-color: #f9f9f9;
+    /* Page Background */
+    .stApp {
+        background: linear-gradient(to bottom right, #f0f4f8, #ffffff);
         font-family: 'Segoe UI', sans-serif;
-        padding: 0px 20px;
+        padding: 1.5rem;
     }
-    .block-container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+
+    /* Title */
+    .st-emotion-cache-10trblm {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
     }
-    h1, h2, h3, h4 {
-        color: #1a73e8;
+
+    /* Text */
+    .stMarkdown p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #333333;
     }
-    .stButton>button {
-        background-color: #1a73e8;
-        color: white;
+
+    /* Selectboxes and radios */
+    .stSelectbox, .stRadio, .stFileUploader, .stButton {
+        font-size: 1.05rem;
+    }
+
+    /* Input Labels */
+    .st-emotion-cache-1c7y2kd {
+        font-size: 1.1rem;
         font-weight: 500;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
     }
-    .stSelectbox, .stRadio, .stFileUploader {
-        background-color: #ffffff;
-        border-radius: 8px;
+
+    /* Hide download/debug text */
+    .stInfo, .stSuccess, .stWarning {
+        display: none !important;
     }
-    footer {visibility: hidden;}
     </style>
 """, unsafe_allow_html=True)
 
