@@ -41,20 +41,38 @@ st.title("Handwritten Digit Recognition")
 
 with st.expander("About this App", expanded=True):
     st.markdown("""
+    Welcome to the Handwritten Digit Recognition Web App.  
     This tool allows you to recognize handwritten digits using pre-trained machine learning models across multiple scripts.
 
-    **Supported Scripts**  
-    - English (0–9)  
-    - Hindi (Devanagari)  
-    - Kannada  
-    - Roman (I to X)
+    ---
+    #### What is Handwritten Digit Recognition?
+    It's a machine learning application that enables computers to interpret digits written by hand.  
+    Commonly used in:
+    - Banking (check processing)
+    - Digitizing forms
+    - Postal code recognition
+    - Mobile input applications
 
-    **Models**  
-    - CNN (Best for images)  
-    - ANN (Simple neural network)  
-    - Random Forest (Traditional ML)
+    ---
+    #### Languages Supported
+    - **English**: Standard digits (0–9)  
+    - **Hindi**: Devanagari numerals (०–९)  
+    - **Kannada**: Regional script digits  
 
-    You can draw a digit or upload an image below.
+    ---
+    #### Models Available
+    - **CNN (Convolutional Neural Network)**  
+      Best for image tasks — it learns visual patterns like edges and shapes.
+    - **ANN (Artificial Neural Network)**  
+      A simpler, dense-layer model for basic pattern recognition.
+    - **Random Forest**  
+      Traditional machine learning using decision trees. Requires the image to be flattened into feature vectors.
+
+    ---
+    **How to Use**
+    - Select a language and model
+    - Draw a digit or upload an image
+    - Click **Predict** to see the result
     """)
 
 # -----------------------------
@@ -144,3 +162,4 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
