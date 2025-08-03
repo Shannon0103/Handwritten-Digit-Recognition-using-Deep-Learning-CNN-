@@ -18,54 +18,36 @@ st.set_page_config(page_title="Handwritten Digit Recognition", layout="wide")
 # -----------------------------
 st.markdown("""
 <style>
-/* Entire app container */
+/* Set full-page background */
 html, body, .stApp {
-    background-image: url('https://raw.githubusercontent.com/Shannon0103/Handwritten-Digit-Recognition-using-Deep-Learning-CNN-/main/bg.jpg');
+    background-image: url('https://raw.githubusercontent.com/xyz/Handwritten-Digit-Recognition-CNN-/main/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     font-family: 'Segoe UI', sans-serif;
-    font-size: 1.05rem;
     color: #222;
 }
 
-/* Main title */
-h1 {
-    font-size: 2.6rem !important;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 1rem;
+/* Make main content container transparent */
+[data-testid="stAppViewContainer"], 
+[data-testid="stVerticalBlock"],
+[data-testid="column"],
+[data-testid="stHorizontalBlock"] {
+    background-color: rgba(255, 255, 255, 0);  /* fully transparent */
+    padding: 0rem;
 }
 
-/* Markdown text */
-.stMarkdown {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-/* Input elements */
-.stSelectbox div, .stRadio div, .stFileUploader, .stButton {
-    font-size: 1.05rem !important;
-}
-
-/* Sidebar, if used */
-section[data-testid="stSidebar"] {
-    background-color: #f8f9fa;
-}
-
-/* Hide model downloading messages */
-.stInfo, .stSuccess, .stWarning {
-    display: none !important;
-}
-
-/* App container transparent so background shows through */
-[data-testid="stAppViewContainer"] {
-    background: transparent;
+/* Optional: reduce padding to make layout tighter */
+.block-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 </style>
 """, unsafe_allow_html=True)
+
 # -----------------------------
 # Title & About
 # -----------------------------
@@ -194,6 +176,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
