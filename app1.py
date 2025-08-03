@@ -18,22 +18,54 @@ st.set_page_config(page_title="Handwritten Digit Recognition", layout="wide")
 # -----------------------------
 st.markdown("""
 <style>
+/* Entire app container */
 html, body, .stApp {
-    background: linear-gradient(to bottom right, #eef2f3, #ffffff);
-    color: #222;
+    background-image: url('https://raw.githubusercontent.com/Shannon0103/Handwritten-Digit-Recognition-using-Deep-Learning-CNN-/main/Background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     font-family: 'Segoe UI', sans-serif;
+    font-size: 1.05rem;
+    color: #222;
 }
+
+/* Main title */
 h1 {
-    font-size: 2.6rem;
+    font-size: 2.6rem !important;
     font-weight: 700;
     color: #1a1a1a;
+    margin-bottom: 1rem;
 }
+
+/* Markdown text */
+.stMarkdown {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Input elements */
+.stSelectbox div, .stRadio div, .stFileUploader, .stButton {
+    font-size: 1.05rem !important;
+}
+
+/* Sidebar, if used */
+section[data-testid="stSidebar"] {
+    background-color: #f8f9fa;
+}
+
+/* Hide model downloading messages */
+.stInfo, .stSuccess, .stWarning {
+    display: none !important;
+}
+
+/* App container transparent so background shows through */
 [data-testid="stAppViewContainer"] {
-    background-color: #ffffff !important;
+    background: transparent;
 }
 </style>
 """, unsafe_allow_html=True)
-
 # -----------------------------
 # Title & About
 # -----------------------------
@@ -162,4 +194,5 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
