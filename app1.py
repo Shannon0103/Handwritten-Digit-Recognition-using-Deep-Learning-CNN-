@@ -20,7 +20,7 @@ st.markdown("""
 <style>
 /* Set full-page background */
 html, body, .stApp {
-    background-image: url('https://raw.githubusercontent.com/xyz/Handwritten-Digit-Recognition-CNN-/main/bg.jpg');
+    background-image: url('https://raw.githubusercontent.com/Shannon0103/Handwritten-Digit-Recognition-using-Deep-Learning-CNN-/main/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -176,6 +176,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
