@@ -20,7 +20,7 @@ html, body, .stApp {
     color: #222;
 }
 
-/* Make main content container transparent */
+
 [data-testid="stAppViewContainer"], 
 [data-testid="stVerticalBlock"],
 [data-testid="column"],
@@ -29,18 +29,22 @@ html, body, .stApp {
     padding: 0rem;
 }
 
-/* Optional: reduce padding to make layout tighter */
+
 .block-container {
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
 }
- [data-testid="canvas-toolbar"] button:nth-child(1) {
-        display: none !important;
-    }
+
+
+[data-testid="canvas-toolbar"] button:nth-child(1) {
+    display: none !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
+
 
 
 st.title("Handwritten Digit Recognition")
@@ -162,6 +166,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
