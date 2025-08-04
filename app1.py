@@ -38,7 +38,7 @@ html, body, .stApp {
 }
 
 
-[data-testid="canvas-toolbar"] button:nth-child(1) {
+[data-testid="canvas-toolbar"] button[title="Download"] {
     display: none !important;
 }
 
@@ -165,6 +165,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
