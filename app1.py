@@ -139,7 +139,6 @@ if input_method == "Draw Digit":
         height=280,
         drawing_mode="freedraw",
         key="canvas"
-        display_toolbar=False
     )
     if canvas_result.image_data is not None:
         img = Image.fromarray((255 - canvas_result.image_data[:, :, 0]).astype(np.uint8))
@@ -166,6 +165,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
