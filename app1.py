@@ -36,6 +36,9 @@ html, body, .stApp {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+ [data-testid="canvas-toolbar"] button:nth-child(1) {
+        display: none !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -132,6 +135,7 @@ if input_method == "Draw Digit":
         height=280,
         drawing_mode="freedraw",
         key="canvas"
+        display_toolbar=False
     )
     if canvas_result.image_data is not None:
         img = Image.fromarray((255 - canvas_result.image_data[:, :, 0]).astype(np.uint8))
@@ -158,6 +162,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
