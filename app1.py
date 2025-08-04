@@ -74,7 +74,7 @@ with st.expander("About this App", expanded=True):
     ---
     #### **How to Use**
     - Select a language and model
-    - Draw a digit or upload an image (Note: Digit must be at the center and drawn big while drawing on canvas or uploading a digit image)
+    - Draw a digit or upload an image (**Note: Digit must be at the center and drawn big while drawing on canvas or uploading a digit image**)
     - Click **Predict** to see the result
     """)
 
@@ -158,6 +158,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
