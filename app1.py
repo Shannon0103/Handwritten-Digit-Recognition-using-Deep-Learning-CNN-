@@ -8,14 +8,10 @@ from PIL import Image, ImageOps
 from utils.preprocessing import preprocess_image_for_model
 from streamlit_drawable_canvas import st_canvas
 
-# -----------------------------
-# Page Configuration
-# -----------------------------
+
 st.set_page_config(page_title="Handwritten Digit Recognition", layout="wide")
 
-# -----------------------------
-# Light Theme Styling
-# -----------------------------
+
 st.markdown("""
 <style>
 
@@ -43,9 +39,7 @@ html, body, .stApp {
 </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------
-# Title & About
-# -----------------------------
+
 st.title("Handwritten Digit Recognition")
 
 with st.expander("About this App", expanded=True):
@@ -78,15 +72,12 @@ with st.expander("About this App", expanded=True):
       Traditional machine learning using decision trees. Requires the image to be flattened into feature vectors.
 
     ---
-    **How to Use**
+    #### **How to Use**
     - Select a language and model
     - Draw a digit or upload an image
     - Click **Predict** to see the result
     """)
 
-# -----------------------------
-# Model Links & Paths
-# -----------------------------
 MODEL_LINKS = {
     "English": {
         "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
@@ -119,9 +110,7 @@ def ensure_model_exists(language, model_type):
         gdown.download(MODEL_LINKS[language][model_type], path, quiet=True, fuzzy=True)
     return path
 
-# -----------------------------
-# UI Inputs
-# -----------------------------
+
 col1, col2 = st.columns(2)
 with col1:
     language = st.selectbox("Select Language", list(MODEL_PATHS.keys()))
@@ -152,9 +141,7 @@ else:
         img = Image.open(uploaded).convert("L")
         img = ImageOps.invert(img)
 
-# -----------------------------
-# Prediction
-# -----------------------------
+
 if st.button("Predict"):
     if img is not None:
         input_img = preprocess_image_for_model(img, model_type, language)
@@ -171,6 +158,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
