@@ -87,7 +87,8 @@ with st.expander("About this App", expanded=True):
 
 MODEL_LINKS = {
     "English": {
-        "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
+       # "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
+        "CNN": "https://drive.google.com/uc?id=1gUHO0WbKPhYdqRxlKdkuB-G-1IZlWZgc",
         "ANN": "https://drive.google.com/uc?id=1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR",
         "RF": "https://drive.google.com/uc?id=14caVZGrLCvocRujCpKB53H2EvpkRDQ3w"
     },
@@ -165,6 +166,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
