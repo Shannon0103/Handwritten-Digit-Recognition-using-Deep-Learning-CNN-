@@ -89,8 +89,8 @@ MODEL_LINKS = {
     "English": {
        # "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
        # "CNN": "https://drive.google.com/uc?id=1gUHO0WbKPhYdqRxlKdkuB-G-1IZlWZgc",  #SD cnn model
-      #  "CNN": "https://drive.google.com/uc?id=1U1GX0tcq5UAEm0a381_g1Kx3B2vPCkTJ", #Updated CNN model
-         "CNN": "https://drive.google.com/uc?id=1QstlzxhzbqR3pueM6-_qc6MM2R-M600W",
+        "CNN": "https://drive.google.com/uc?id=1U1GX0tcq5UAEm0a381_g1Kx3B2vPCkTJ", #Updated CNN model
+      #   "CNN": "https://drive.google.com/uc?id=1QstlzxhzbqR3pueM6-_qc6MM2R-M600W",
        # "ANN": "https://drive.google.com/uc?id=1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR",
       #  "ANN": "https://drive.google.com/uc?id=1fpdB7O6e0tqLR28_4myyp1QIgvLekmN4",  #Updated ANN model
         "ANN": "https://drive.google.com/uc?id=1BXGTf45FvVQETRXOXCVdM8mb_xY61kdc",
@@ -183,6 +183,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
