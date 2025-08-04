@@ -89,24 +89,35 @@ MODEL_LINKS = {
     "English": {
        # "CNN": "https://drive.google.com/uc?id=1EDq5MO2_T9UN_n_N_PwW5tKIA25z4Li6",
        # "CNN": "https://drive.google.com/uc?id=1gUHO0WbKPhYdqRxlKdkuB-G-1IZlWZgc",  #SD cnn model
-        "CNN": "https://drive.google.com/uc?id=1U1GX0tcq5UAEm0a381_g1Kx3B2vPCkTJ", #Updated CNN model
+      #  "CNN": "https://drive.google.com/uc?id=1U1GX0tcq5UAEm0a381_g1Kx3B2vPCkTJ", #Updated CNN model
+         "CNN": "https://drive.google.com/uc?id=1QstlzxhzbqR3pueM6-_qc6MM2R-M600W",
        # "ANN": "https://drive.google.com/uc?id=1YDdAsYiTHwXtYNoxREd2365w7cnAzlgR",
-        "ANN": "https://drive.google.com/uc?id=1fpdB7O6e0tqLR28_4myyp1QIgvLekmN4",  #Updated ANN model
-        "RF": "https://drive.google.com/uc?id=14caVZGrLCvocRujCpKB53H2EvpkRDQ3w"
+      #  "ANN": "https://drive.google.com/uc?id=1fpdB7O6e0tqLR28_4myyp1QIgvLekmN4",  #Updated ANN model
+        "ANN": "https://drive.google.com/uc?id=1BXGTf45FvVQETRXOXCVdM8mb_xY61kdc",
+       # "RF": "https://drive.google.com/uc?id=14caVZGrLCvocRujCpKB53H2EvpkRDQ3w"
+        "RF": "https://drive.google.com/uc?id=1xaSfAllLTgPJyG7z-9nHdyT0IdK2YHgX"
     },
     "Hindi": {
         # "CNN": "https://drive.google.com/uc?id=15TNldBSc2Z7P8VVQ6QfopNx4Z6PcIfC3",
-        "CNN": "https://drive.google.com/uc?id=1CRlHTXh5vJkez66uZmX97p4BG7vZ-g6t",     #Updated CNN model                                                                     
+       # "CNN": "https://drive.google.com/uc?id=1CRlHTXh5vJkez66uZmX97p4BG7vZ-g6t",     #Updated CNN model        
+        "CNN": "https://drive.google.com/uc?id=1EWdoOhqFqpkeYqE7lByncJDhiprc1vQA", 
+        
        # "ANN": "https://drive.google.com/uc?id=1a_0Y3dNu0MC7nr6EQCTDUWAxvFNcKvCW",
-        "ANN": "https://drive.google.com/uc?id=1N2CuO3M_mXAxRv130S-a2pIfkxPQvOR2", #Updated ANN model
-        "RF": "https://drive.google.com/uc?id=1aq02W1RXxKCaeDxwJQ2RnG1OREN8jyYn"
+       # "ANN": "https://drive.google.com/uc?id=1N2CuO3M_mXAxRv130S-a2pIfkxPQvOR2", #Updated ANN model
+        "ANN": "https://drive.google.com/uc?id=1NuN52mi6k01692IV0_BHbnBDTCDXSnZH",
+        #"RF": "https://drive.google.com/uc?id=1aq02W1RXxKCaeDxwJQ2RnG1OREN8jyYn"
+        "RF": "https://drive.google.com/uc?id=1CUbehswurG1sKcPQMJmWNKm2zMU1zfq3"
+     
     },
     "Kannada": {
       #  "CNN": "https://drive.google.com/uc?id=1DYbOBjtT2SljAKG1bgraSlFjfBAojbEJ", 
-        "CNN": "https://drive.google.com/uc?id=1xlJ-uCtV6gE6ufFYGpGl-Bq4NBDIzyW-",  #Updated CNN model
+      #  "CNN": "https://drive.google.com/uc?id=1xlJ-uCtV6gE6ufFYGpGl-Bq4NBDIzyW-",  #Updated CNN model
+        "CNN": "https://drive.google.com/uc?id=1YZyP-FmGpQtsX0Iz-EYefSL69Is03Qqg",
       #  "ANN": "https://drive.google.com/uc?id=10SbZ1c4E05UdkPbGy8c97hOhAK1pSDOs",
-        "ANN": "https://drive.google.com/uc?id=1o5c9rhV3qxUT8Nb6nOkTkx0smFkKsWe1",  #Updated ANN model
-        "RF": "https://drive.google.com/uc?id=1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf"
+      #  "ANN": "https://drive.google.com/uc?id=1o5c9rhV3qxUT8Nb6nOkTkx0smFkKsWe1",  #Updated ANN model
+        "ANN": "https://drive.google.com/uc?id=1dPfk7w5AuRgHueAc_XPSDraV512ox_GY", 
+      #  "RF": "https://drive.google.com/uc?id=1kT7lrJe5jqsO71vzUpeOS-p1VClaIQRf"
+        "RF": "https://drive.google.com/uc?id=1XA-i3EjBBxISwMCYuL8lwingBFPbShYv"
     }
 }
 
@@ -172,6 +183,7 @@ if st.button("Predict"):
             st.error(f"Error: {e}")
     else:
         st.warning("Please draw or upload a digit.")
+
 
 
 
